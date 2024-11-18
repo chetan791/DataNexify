@@ -27,7 +27,7 @@ export const Formpage = () => {
 
   useEffect(() => {
     if (!value.isAuth) {
-      window.location.href = "/";
+      navigate("/");
     }
   }, [value.isAuth, navigate]);
 
@@ -85,7 +85,9 @@ export const Formpage = () => {
       <form id="event-form" onSubmit={handleSubmit}>
         <h1>Create New Event</h1>
         <div>
-          <label htmlFor="name">Event Name</label>
+          <label htmlFor="name">
+            Event Name <span>*</span>
+          </label>
           <input
             type="text"
             required
@@ -113,7 +115,9 @@ export const Formpage = () => {
         </div>
         <div className="datebox-container">
           <div>
-            <label>Start Date & Time</label>
+            <label>
+              Start Date & Time <span>*</span>
+            </label>
             <input
               type="datetime-local"
               className="datebox"
@@ -124,7 +128,9 @@ export const Formpage = () => {
             />
           </div>
           <div>
-            <label>End Date & Time</label>
+            <label>
+              End Date & Time <span>*</span>
+            </label>
             <input
               type="datetime-local"
               className="datebox"
