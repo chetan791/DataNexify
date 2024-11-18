@@ -9,6 +9,8 @@ export const AllEventsPage = () => {
 
   const [events, setEvents] = useState([]);
 
+  const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate();
 
   // dummy data for development
@@ -127,15 +129,18 @@ export const AllEventsPage = () => {
 
   const getAllEvents = async () => {
     try {
+      setLoading(true);
       const res = await axios.post(
         "https://datanexify-assignment-7apd.onrender.com/user/get-events",
         {
           email: value.email,
         }
       );
-      console.log(res);
+      setLoading(false);
+      // console.log(res);
       setEvents(res.data);
     } catch (error) {
+      setLoading(false);
       console.log(error);
     }
   };
@@ -160,6 +165,7 @@ export const AllEventsPage = () => {
         </div>
         <div className="events-container">
           <h2>All Events</h2>
+          {loading && <Loader />}
           {events?.map((event, i) => (
             <div key={i}>
               <EventRow event={event} index={i} />

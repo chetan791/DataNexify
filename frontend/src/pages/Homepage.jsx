@@ -15,7 +15,7 @@ export const Homepage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (value.isAuth) navigate("/form");
+    if (value.isAuth) navigate("/events");
   }, [value.isAuth, navigate]);
 
   // the useGoogleLogin hook returns a function that can be called to initiate the login process
@@ -36,6 +36,8 @@ export const Homepage = () => {
         // we have to store the email in global state
         setValue({ ...value, email: data, isAuth: true });
       } catch (error) {
+        setLoading(false);
+        alert("Something went wrong");
         console.log(error);
       }
     },
