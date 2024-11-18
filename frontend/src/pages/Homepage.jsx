@@ -1,14 +1,16 @@
 import { useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "../css/Homepage.css";
 import MyContext from "../context/MyContext";
 import { useNavigate } from "react-router-dom";
 import { FaGoogle, FaArrowRight } from "react-icons/fa";
+import { Loader } from "../Components/Loader";
 
 export const Homepage = () => {
   const { value, setValue } = useContext(MyContext);
   // console.log(value);
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
@@ -22,11 +24,13 @@ export const Homepage = () => {
     onSuccess: async (credentialResponse) => {
       const { code } = credentialResponse;
       try {
+        setLoading(true);
         const res = await axios.post(
           "https://datanexify-assignment-7apd.onrender.com/user/create-token",
           { code }
         );
 
+        setLoading(false);
         const data = res.data;
 
         // we have to store the email in global state
@@ -45,17 +49,21 @@ export const Homepage = () => {
 
   return (
     <div className="container">
-      <div className="card">
-        <h1>DataNexify Assignment</h1>
-        <p>
-          Welcome to the DataNexify assignment. Please sign in with your Google
-          account to continue.
-        </p>
-        <button id="signInButton" onClick={() => login()}>
-          <FaGoogle style={{ margin: "0" }} /> <p>Login with google</p>
-          <FaArrowRight style={{ margin: "0" }} />
-        </button>
-      </div>
+      {loading ? (
+        <Loader />
+      ) : (
+        <div className="card">
+          <h1>DataNexify Assignment</h1>
+          <p>
+            Welcome to the DataNexify assignment. Please sign in with your
+            Google account to continue.
+          </p>
+          <button id="signInButton" onClick={() => login()}>
+            <FaGoogle style={{ margin: "0" }} /> <p>Login with google</p>
+            <FaArrowRight style={{ margin: "0" }} />
+          </button>
+        </div>
+      )}
     </div>
   );
 };
