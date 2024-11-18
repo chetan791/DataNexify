@@ -6,7 +6,7 @@ const app = express();
 const dotenv = require("dotenv").config();
 
 app.use(express.json());
-app.use(cors({ origin: "https://data-nexify-two.vercel.app/" }));
+app.use(cors({ origin: "https://data-nexify-two.vercel.app" }));
 
 app.use("/user", userRouter);
 
