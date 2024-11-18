@@ -49,7 +49,7 @@ userRouter.post("/create-token", async (req, res) => {
       });
       newUser.save();
       // console.log("new user =>", newUser);
-      res.send({ data: newUser.email });
+      res.send(newUser.email);
     } else {
       // console.log("existing user =>", existingUser);
       res.send(existingUser.email);
