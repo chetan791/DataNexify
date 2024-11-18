@@ -11,7 +11,7 @@ const oAuth2Client = new google.auth.OAuth2({
   clientId: googleClientId,
   clientSecret: googleClientSecret,
   redirectUri:
-    "https://data-nexify-90nz1k2bf-chetans-projects-61062c56.vercel.app", // if working offline use localhost else use deployed url
+    "https://data-nexify-ed8zpbebt-chetans-projects-61062c56.vercel.app", // if working offline use localhost else use deployed url
 });
 
 userRouter.get("/", (req, res) => {
