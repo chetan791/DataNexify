@@ -138,6 +138,7 @@ export const AllEventsPage = () => {
         }
       );
       setLoading(false);
+      console.log(res.data);
       setEvents(res.data);
     } catch (error) {
       setLoading(false);
