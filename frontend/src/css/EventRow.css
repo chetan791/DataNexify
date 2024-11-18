@@ -15,7 +15,9 @@
 }
 
 .events-row div p {
-  word-wrap: break-all;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  white-space: normal;
 }
 
 .date-time {
