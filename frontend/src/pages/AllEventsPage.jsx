@@ -127,9 +127,12 @@ export const AllEventsPage = () => {
 
   const getAllEvents = async () => {
     try {
-      const res = await axios.post("http://localhost:4000/user/get-events", {
-        email: value.email,
-      });
+      const res = await axios.post(
+        "https://datanexify-assignment-7apd.onrender.com/user/get-events",
+        {
+          email: value.email,
+        }
+      );
       console.log(res);
       setEvents(res.data);
     } catch (error) {

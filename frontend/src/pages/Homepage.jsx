@@ -23,7 +23,7 @@ export const Homepage = () => {
       const { code } = credentialResponse;
       try {
         const res = await axios.post(
-          "http://localhost:4000/user/create-token",
+          "https://datanexify-assignment-7apd.onrender.com/user/create-token",
           { code }
         );
 
