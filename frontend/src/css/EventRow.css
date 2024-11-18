@@ -1,0 +1,24 @@
+.icons {
+  color: #8e54b7;
+  font-weight: bolder;
+  font-size: larger;
+}
+
+.events-row div {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 0;
+  /* border: 1px solid white; */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.date-time {
+  /* flex-direction: column; */
+}
+
+.date-time p,
+.date-time .icons {
+  margin: 0;
+}
