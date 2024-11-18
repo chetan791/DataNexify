@@ -167,16 +167,16 @@ export const AllEventsPage = () => {
         <div className="events-container">
           <h2>All Events</h2>
           {loading && <Loader style={{ marginTop: "20px" }} />}
+          {events.length == 0 && (
+            <h3 style={{ textAlign: "center", marginTop: "20px" }}>
+              No events found
+            </h3>
+          )}
           {events?.map((event, i) => (
             <div key={i}>
               <EventRow event={event} index={i} />
             </div>
           ))}
-          {/* {events.length == 0 && ( */}
-          <h2 style={{ textAlign: "center", marginTop: "20px" }}>
-            No events found
-          </h2>
-          {/* )} */}
         </div>
       </div>
     </div>
