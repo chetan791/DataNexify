@@ -9,7 +9,6 @@ import { Loader } from "../Components/Loader";
 
 export const Homepage = () => {
   const { value, setValue } = useContext(MyContext);
-  // console.log(value);
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
