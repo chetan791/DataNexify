@@ -173,11 +173,11 @@ export const AllEventsPage = () => {
             </div>
           ))}
         </div>
-        {events.length == 0 && (
-          <h2 style={{ textAlign: "center", marginTop: "20px" }}>
-            No events found
-          </h2>
-        )}
+        {/* {events.length == 0 && ( */}
+        <h2 style={{ textAlign: "center", marginTop: "20px" }}>
+          No events found
+        </h2>
+        {/* )} */}
       </div>
     </div>
   );
