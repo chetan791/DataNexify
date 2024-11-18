@@ -4,6 +4,7 @@ import { EventRow } from "../Components/EventRow";
 import MyContext from "../context/MyContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Loader } from "../Components/Loader";
 export const AllEventsPage = () => {
   const { value, setValue } = useContext(MyContext);
 
@@ -137,7 +138,6 @@ export const AllEventsPage = () => {
         }
       );
       setLoading(false);
-      // console.log(res);
       setEvents(res.data);
     } catch (error) {
       setLoading(false);
