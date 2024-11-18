@@ -47,7 +47,7 @@ export const EventRow = ({ event, index }) => {
       </div>
       <div>
         <IoLocationOutline className="icons" />
-        <p>{location}</p>
+        <p>{location ? location : "NA"}</p>
       </div>
     </div>
   );
