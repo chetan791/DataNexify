@@ -27,22 +27,22 @@ export const EventRow = ({ event, index }) => {
         <div className="small-screen-div">Start</div>
         <div>
           <CiCalendarDate className="icons" />
-          <p>{start.dateTime.split("").slice(0, 10).join("")}</p>
+          <p>{start?.dateTime?.split("").slice(0, 10).join("")}</p>
         </div>
         <div>
           <FaRegClock className="icons" />
-          <p>{convertDateTimeToAmPm(start.dateTime)}</p>
+          <p>{convertDateTimeToAmPm(start?.dateTime)}</p>
         </div>
       </div>
       <div className="date-time">
         <div className="small-screen-div">End</div>
         <div>
           <CiCalendarDate className="icons" />
-          <p>{end.dateTime.split("").slice(0, 10).join("")}</p>
+          <p>{end?.dateTime?.split("").slice(0, 10).join("")}</p>
         </div>
         <div>
           <FaRegClock className="icons" />
-          <p>{convertDateTimeToAmPm(end.dateTime)}</p>
+          <p>{convertDateTimeToAmPm(end?.dateTime)}</p>
         </div>
       </div>
       <div>
