@@ -73,12 +73,12 @@ userRouter.post("/create-event", async (req, res) => {
 
     // console.log(req.body.email);
 
-    const { refreshToken } = await userModel.findOne({
+    const data = await userModel.findOne({
       email: email,
     });
     // console.log(refreshToken);
 
-    oAuth2Client.setCredentials({ refresh_token: refreshToken });
+    oAuth2Client.setCredentials({ refresh_token: data.refreshToken });
     const calendar = google.calendar({ version: "v3", auth: oAuth2Client });
 
     const event = await calendar.events.insert({
