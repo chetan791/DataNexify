@@ -71,7 +71,7 @@ userRouter.post("/create-event", async (req, res) => {
       email,
     } = req.body;
 
-    console.log(req.body.email);
+    // console.log(req.body.email);
 
     const { refreshToken } = await userModel.findOne({
       email: email,
@@ -79,9 +79,9 @@ userRouter.post("/create-event", async (req, res) => {
     // console.log(refreshToken);
 
     oAuth2Client.setCredentials({ refresh_token: refreshToken });
-    const calendar = google.calendar("v3");
+    const calendar = google.calendar({ version: "v3", auth: oAuth2Client });
 
-    const event = calendar.events.insert({
+    const event = await calendar.events.insert({
       auth: oAuth2Client,
       calendarId: "primary",
       requestBody: {
@@ -104,7 +104,6 @@ userRouter.post("/create-event", async (req, res) => {
         }),
       },
     });
-
     res.send(event);
   } catch (error) {
     res.send(error);
@@ -113,13 +112,13 @@ userRouter.post("/create-event", async (req, res) => {
 
 userRouter.post("/get-events", async (req, res) => {
   try {
-    console.log(req.body);
     const { email } = req.body;
-    const { refreshToken } = await userModel.findOne({
+    const data = await userModel.findOne({
       email: email,
     });
+    // console.log(data);
 
-    oAuth2Client.setCredentials({ refresh_token: refreshToken });
+    oAuth2Client.setCredentials({ refresh_token: data.refreshToken });
     const calendar = google.calendar({ version: "v3", auth: oAuth2Client });
 
     const response = await calendar.events.list({
@@ -129,7 +128,7 @@ userRouter.post("/get-events", async (req, res) => {
       singleEvents: true,
       orderBy: "startTime",
     });
-    
+
     res.send(response.data.items);
   } catch (error) {
     console.log(error);
