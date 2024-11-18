@@ -129,6 +129,7 @@ userRouter.post("/get-events", async (req, res) => {
       singleEvents: true,
       orderBy: "startTime",
     });
+    
     res.send(response.data.items);
   } catch (error) {
     console.log(error);
