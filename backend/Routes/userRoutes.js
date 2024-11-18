@@ -10,7 +10,7 @@ const googleClientSecret = process.env.GOOGLE_CLIENT_SECRET;
 const oAuth2Client = new google.auth.OAuth2({
   clientId: googleClientId,
   clientSecret: googleClientSecret,
-  redirectUri: "http://localhost:3000", // if working offline else use deployed url
+  redirectUri: "https://data-nexify-two.vercel.app", // if working offline else use deployed url
 });
 
 userRouter.get("/", (req, res) => {
