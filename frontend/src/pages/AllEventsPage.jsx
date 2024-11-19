@@ -167,7 +167,7 @@ export const AllEventsPage = () => {
         <div className="events-container">
           <h2>All Events</h2>
           {loading && <Loader style={{ marginTop: "20px" }} />}
-          {events.length == 0 && (
+          {events.length == 0 && !loading && (
             <h3 style={{ textAlign: "center", marginTop: "20px" }}>
               No events found
             </h3>
