@@ -132,7 +132,7 @@ export const AllEventsPage = () => {
     try {
       setLoading(true);
       const res = await axios.post(
-        "https://datanexify-assignment-7apd.onrender.com/user/get-events",
+        `${process.env.REACT_APP_API_URL}user/get-events`,
         {
           email: value.email,
         }

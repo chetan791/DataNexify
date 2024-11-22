@@ -25,7 +25,7 @@ export const Homepage = () => {
       try {
         setLoading(true);
         const res = await axios.post(
-          "https://datanexify-assignment-7apd.onrender.com/user/create-token",
+          `${process.env.REACT_APP_API_URL}user/create-token`,
           { code }
         );
 
@@ -54,10 +54,10 @@ export const Homepage = () => {
         <Loader />
       ) : (
         <div className="card">
-          <h1>DataNexify Assignment</h1>
+          <h1>Syncly</h1>
           <p>
-            Welcome to the DataNexify assignment. Please sign in with your
-            Google account to continue.
+            Welcome to the Syncly. Please sign in with your Google account to
+            continue.
           </p>
           <button id="signInButton" onClick={() => login()}>
             <FaGoogle style={{ margin: "0" }} /> <p>Login with google</p>

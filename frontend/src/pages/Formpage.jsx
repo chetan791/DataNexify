@@ -51,10 +51,13 @@ export const Formpage = () => {
       e.preventDefault();
       if (e.target.checkValidity() && value.isAuth) {
         const res = await axios.post(
-          "https://datanexify-assignment-7apd.onrender.com/user/create-event",
-          { ...eventData, email: value.email }
+          `${process.env.REACT_APP_API_URL}user/create-event`,
+          {
+            ...eventData,
+            email: value.email,
+          }
         );
-        console.log(res);
+        // console.log(res);
         alert("Event created successfully");
       } else {
         alert("Something went wrong");
