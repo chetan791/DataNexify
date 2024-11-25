@@ -32,7 +32,7 @@ export const Navbar = () => {
           alignItems: "center",
         }}
       >
-        <h1>Assignment</h1>
+        <h1>Syncly</h1>
         <SlMenu id="SlMenu" onClick={() => setShowOptions((prev) => !prev)} />
       </div>
       <ul
